@@ -1,0 +1,9 @@
+CREATE OR REPLACE view __VIEW__NAME__HERE__
+AS
+WITH t1 AS
+(
+    SELECT __ALL__COLUMNS__HERE__, active_,
+    ROW_NUMBER() OVER (PARTITION BY __PK__COLUMNS__HERE__ ORDER BY since_ DESC) AS row_
+    FROM __TABLE__NAME__HERE__
+)
+SELECT __ALL__COLUMNS__HERE__ FROM t1 WHERE row_ = 1 AND active_ = true

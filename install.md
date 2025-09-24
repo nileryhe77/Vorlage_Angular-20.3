@@ -53,3 +53,5 @@ export const environment = {
 python -m venv venv
 venv\Scripts\activate.bat  <!-- Windows -->
 pip install fastapi uvicorn[standard] python-keycloak
+pip install pydantic-settings
+pip install psycopg2-binary

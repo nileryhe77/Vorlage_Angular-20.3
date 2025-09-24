@@ -1,8 +1,9 @@
 import {
   ApplicationConfig,
+  APP_INITIALIZER,
+  importProvidersFrom,
   provideBrowserGlobalErrorListeners,
-  provideZoneChangeDetection,
-  importProvidersFrom
+  provideZoneChangeDetection
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import {
@@ -17,9 +18,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 // Keycloak
-import { APP_INITIALIZER } from '@angular/core';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './core/auth/keycloak-init.factory';
+
+// HTTP Interceptor
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './core/auth/auth.interceptor';
 
 import { routes } from './app.routes';
 
@@ -39,12 +43,16 @@ export const appConfig: ApplicationConfig = {
       KeycloakAngularModule
     ),
 
-    // Keycloak Init über Factory (Variante A)
+    // Keycloak
+    KeycloakService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
+
+    // HTTP Client + Interceptor
+    provideHttpClient(withInterceptors([authInterceptor]))
   ]
 };

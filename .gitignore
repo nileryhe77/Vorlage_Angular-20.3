@@ -408,3 +408,6 @@ Thumbs.db
 *.crt
 *.key
 *.csr
+ .env
+ start.bat
+ .gitignore
