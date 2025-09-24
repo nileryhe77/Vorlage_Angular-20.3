@@ -1,0 +1,82 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ===== Theme Variablen ===== */
+:root {
+  --header-bg: #ffffff;
+  --header-border: #e0e0e0;
+  --header-text: #222;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-border: #ddd;
+  --sidebar-link: #333;
+  --sidebar-link-hover: #e9ecef;
+  --body-bg: #f5f5f5;
+  --body-text: #222;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --header-bg: #1e1e1e;
+  --header-border: #333;
+  --header-text: #f5f5f5;
+  --sidebar-bg: #2a2a2a;
+  --sidebar-border: #444;
+  --sidebar-link: #ddd;
+  --sidebar-link-hover: #3a3a3a;
+  --body-bg: #121212;
+  --body-text: #f5f5f5;
+}
+
+/* ===== Header ===== */
+mat-toolbar {
+  height: 64px;
+  background-color: var(--header-bg) !important;
+  color: var(--header-text) !important;
+  border-bottom: 1px solid var(--header-border);
+}
+
+/* ===== Sidebar ===== */
+.app-sidebar {
+  width: 240px;
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  padding-top: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-header {
+  padding: 0 1rem 1rem 1rem;
+  border-bottom: 1px solid var(--sidebar-border);
+  margin-bottom: 1rem;
+}
+
+mat-nav-list a {
+  font-weight: 500;
+  color: var(--sidebar-link);
+}
+
+  mat-nav-list a:hover {
+    background-color: var(--sidebar-link-hover);
+  }
+
+/* ===== Body ===== */
+body {
+  background-color: var(--body-bg);
+  color: var(--body-text);
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+  font-size: 1.2rem;
+  color: #666;
+}

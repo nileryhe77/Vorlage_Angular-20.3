@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="d-flex">
+  @if (loggedIn) {
+  <app-sidebar></app-sidebar>
+  }
+
+  <div class="flex-grow-1 p-3" [style.margin-left.px]="loggedIn ? 240 : 0">
+    @if (loggedIn) {
+    <router-outlet></router-outlet>
+    } @else {
+    <div class="p-4 text-center">
+      <h2>Bitte einloggen</h2>
+      <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+    }
+  </div>
+</div>
