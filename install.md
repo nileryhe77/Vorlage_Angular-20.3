@@ -10,6 +10,8 @@ npm install bootstrap
 ng add @angular/material
 npm install @angular/animations
 npm install keycloak-angular keycloak-js
+npm install chart.js ng2-charts  <!-- zum testen -->
+
 
 
 
